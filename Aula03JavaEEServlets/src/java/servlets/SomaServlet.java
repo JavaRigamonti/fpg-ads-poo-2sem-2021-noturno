@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teste;
+package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author T-Gamer
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
-public class NewServlet extends HttpServlet {
+@WebServlet(name = "SomaServlet", urlPatterns = {"/sum.html"})
+public class SomaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,14 +33,32 @@ public class NewServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
+             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
+            out.println("<title>JavaEE - Servlets</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>JavaEE</h1>");
+            out.println("<h2>Servlets</h2>");
+            out.println("<h3>Soma</h3>");
+            
+            try{
+                 double n1 = Double.parseDouble(request.getParameter("n1"));
+                 out.println("<h4><b>N1</b>:"+n1+"</h4>");
+                 double n2 = Double.parseDouble(request.getParameter("n2"));
+                 out.println("<h4><b>N2</b>:"+n2+"</h4>");
+                  out.println("<hr/>");
+                 out.println("<h4><b>SOMA</b>:"+(n1+n2)+"</h4>");
+              }catch(Exception ex){
+                  out.println("<p style='color:red'>"+ex.getMessage()+"</p>");  
+              }
+            
+               
+            out.println("</table>");     
+            
+            
+            out.println("<h3><a href='index.html'>Voltar</a></h3>");
             out.println("</body>");
             out.println("</html>");
         }
