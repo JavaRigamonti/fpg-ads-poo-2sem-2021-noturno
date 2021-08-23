@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author T-Gamer
  */
-@WebServlet(name = "SomaServlet", urlPatterns = {"/sum.html"})
-public class SomaServlet extends HttpServlet {
+@WebServlet(name = "MathServlet", urlPatterns = {"/math.html"})
+public class MathServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,22 +33,22 @@ public class SomaServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-             out.println("<!DOCTYPE html>");
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>MathServlets</title>");            
+            out.println("<title>MathServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>MathServlets</h1>");
-           
+            out.println("<h1>MathServlet</h1>");
             
             try{
                  double n1 = Double.parseDouble(request.getParameter("n1"));
-                 out.println("<h4><b>N1</b>:"+n1+"</h4>");
+                 out.println("<h4><b>N1</b>="+n1+"</h4>");
                  double n2 = Double.parseDouble(request.getParameter("n2"));
-                 out.println("<h4><b>N2</b>:"+n2+"</h4>");
+                 out.println("<h4><b>N2</b>="+n2+"</h4>");
                   out.println("<hr/>");
-                 out.println("<h4><b>SOMA</b>:"+(n1+n2)+"</h4>");
+                 out.println("<h4><b>DIVISÃO</b>="+(n1/n2)+"</h4>");
               }catch(Exception ex){
                   out.println("<p style='color:red'>"+ex.getMessage()+"</p>");  
               }
