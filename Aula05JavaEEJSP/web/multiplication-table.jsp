@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    int n=5;
+    int n=10;
     String error = null;
     if(request.getParameter("n")==null){
         error = "Não foi informado o parâmetro necessário 'n'";
@@ -21,6 +21,7 @@
         }
     
     }
+    
 %>
 <html>
     <head>
@@ -31,22 +32,20 @@
     <body>
         <h1>JavaEE</h1>
         <h2>Java Server Pages</h2>
-        <h3>Lista de Números Aletórios</h3>
+        <h3>Tabuada</h3>
         <h4><a href="index.html">Voltar</a></h4>
         <hr/>
         <%if(error != null){%>
         <div style="color: red"><%= error %></div>
         <%}else{%>
-        <table border="1">
-            <tr>
-                <th>Índice</th>
-                <th>Número</th>
-                
-            </tr>
-            <%for (int i=1; i<=n; i++){%>
+        <table>
+            <%for (int i=1; i<=10; i++){%>
              <tr>
+                <td><%= n %></td>
+                <td>x</td>
                 <td><%= i %></td>
-                <td><%= ((int)(Math.random()*100)) %></td>
+                <td>=</td>
+                <td><%= n*i %></td>
                 
             </tr>
             <%}%>
@@ -54,7 +53,7 @@
         <hr/>
         <%}%>
         
-        <form action="random-list.jsp">
+        <form action="multiplication-table.jsp">
             <input type="number" name="n" value="<%= n %>"/>
             <input type="submit" value="Gerar"/>
         </form>

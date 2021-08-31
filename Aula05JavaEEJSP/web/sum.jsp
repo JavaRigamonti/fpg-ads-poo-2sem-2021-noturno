@@ -54,5 +54,11 @@
         <%}else{%>
         <div><%= n1 %> + <%= n2 %> = <%= result %></div>
         <%}%>
+        
+       <form action="sum.jsp">
+            <input type="number" name="n1" value="<%= n1 %>"/>+
+            <input type="number" name="n2" value="<%= n2 %>"/>
+            <input type="submit" name="=" value="="/>
+        </form>
     </body>
 </html>
