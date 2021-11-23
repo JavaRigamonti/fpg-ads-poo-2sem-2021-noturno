@@ -21,8 +21,4 @@ public class Task {
         this.user = user;
     }
 
-    public Task(String title, int id, String user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-       
 }

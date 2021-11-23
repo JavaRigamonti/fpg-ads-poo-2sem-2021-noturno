@@ -7,25 +7,25 @@
 <!DOCTYPE html>
 
 <%
-    Exception requestExecption = null;
-    ArrayList<String> taskList = new ArrayList();
+   String userIsLogged = (String) session.getAttribute("auth-user");
+   ArrayList<Task> taskList = new ArrayList();
    
-        if (request.getParameter("auth_login") != null) {
+        if (request.getParameter("auth-login") != null) {
             String username = request.getParameter("auth-username");
             session.setAttribute("auth-user", username);
             response.sendRedirect(request.getRequestURI());
-        }else if (request.getParameter("auth_logout") != null){
+        }else if (request.getParameter("auth-logout") != null){
             session.removeAttribute("auth-user");
             response.sendRedirect(request.getRequestURI());
         }
-    if(userIsLogged != null)
+    if(userIsLogged != null){
         if (request.getParameter("new-task") != null) {
             String taskName = request.getParameter("taskName");
             Tasks.addTask(taskName, userIsLogged);
             response.sendRedirect(request.getRequestURI());
         }
         if (request.getParameter("remove") != null) {
-            String taskId = request.getParameter("taskId");
+            Integer taskId = Integer.parseInt(request.getParameter("taskId"));
             Tasks.removeTask(taskId);
             response.sendRedirect(request.getRequestURI());
         }
@@ -48,7 +48,7 @@
         <% if (userIsLogged != null) { %>
         <form action="index.jsp" method="post">
         <input type="text" name="taskName" />
-        <input type="text" name="taskName" value="Nova Tarefa" />
+        <input type="submit" name="new-task" value="Nova Tarefa" />
     </form>
         
         <table>

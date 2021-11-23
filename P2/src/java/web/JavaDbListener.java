@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package web;
-
-import java.sql.*;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import static sun.tools.jconsole.Messages.CLASS_NAME;
+import java.sql.*;
 
 /**
  * Web application lifecycle listener.
@@ -16,6 +14,7 @@ import static sun.tools.jconsole.Messages.CLASS_NAME;
  * @author T-Gamer
  */
 public class JavaDbListener implements ServletContextListener {
+public static final String CLASS_NAME = "org.sqlite.JDBC";
 public static final String URL = "jdbc:sqlite:tasks.db";
     
     public static Exception exception = null;

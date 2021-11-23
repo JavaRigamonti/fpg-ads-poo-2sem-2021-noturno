@@ -7,8 +7,8 @@ import web.JavaDbListener;
 public class Tasks {
     
     
-    public static ArrayList<String> getTasks(String user) throws Exception{
-        ArrayList<String> list = new ArrayList();
+    public static ArrayList<Task> getTasks(String user) throws Exception{
+        ArrayList<Task> list = new ArrayList();
         Connection con = JavaDbListener.getConnection();
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM java_tasks WHERE user = '" + user + "'");
@@ -32,14 +32,14 @@ public class Tasks {
         ArrayList<String> list = new ArrayList();
         Connection con = JavaDbListener.getConnection();
         Statement stmt = con.createStatement();
-        stmt.execute("insert into java_tasks (id, title, user) values(null, '" + taskName + "','" + user + "')'");
+        stmt.execute("insert into java_tasks (id, title, user) values(null, '" + taskName + "','" + user + "')");
     }
     
     public static void removeTask(Integer id) throws Exception {
         ArrayList<String> list = new ArrayList();
         Connection con = JavaDbListener.getConnection();
         Statement stmt = con.createStatement();
-        stmt.execute("delete from tasks where id = "+ id + "");
+        stmt.execute("delete from java_tasks where id = "+ id + "");
     }
     
 }
