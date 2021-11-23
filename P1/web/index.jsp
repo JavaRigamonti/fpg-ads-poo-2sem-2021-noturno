@@ -1,8 +1,9 @@
 <%-- 
     Document   : index
-    Created on : 27 de set. de 2021, 18:50:59
+    Created on : 4 de out. de 2021, 17:40:35
     Author     : T-Gamer
 --%>
+
 
 <%
     int counterUsers = 0;
@@ -15,7 +16,7 @@
     ArrayList<String> usersIntern = new ArrayList<String>();
     
     if(alreadyAuthHome != null){
-        for(int i = 0; i < counterUsers; i++){
+        for(int i = 1; i < counterUsers; i++){
            String user = (String.valueOf(application.getAttribute("user" + i)));
            
            if(user != null){
@@ -29,70 +30,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lucas Andrade App</title>
+        <title>Javã Rigamonti</title>
     </head>
-    <style>
-       .grid {
-            display: grid;
-        }
-        .grid-cols-5{
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-        }
-        .grid-cols-1{
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-        .mb-5 {
-            margin-bottom: 1.25rem;
-        }
-        .text-center{
-            text-align: center;
-        }
-        .w-full{
-            width: 100%;
-        }
-        .border {
-            border: 1px solid;
-        }
-        .p-2{
-            padding: 1.25rem;
-        }
-        .p-5{
-            padding: 2rem;
-        }
-        .f-25{
-            font-size: 25px;
-        }
-        .font-bold{
-            font-weight: bold;
-        }
-        .flex{
-             display: flex;
-        }
-        
-        .mx-5{
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-        .text-red{
-            color: red;
-        }
-        .gap-10{
-            gap: 10px;
-        }
-    </style>
+   
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
         
         
         <section>
             <div>
-                <h4>Total de usuários ativos no momento: <%= counterUsers %></h4>
+                <h4>Total de usuários ativos no momento: <%= counterUsers -1 %></h4>
                 
             </div>
                 
             <div>
                 <h4>Usuário logados</h4>
-                <div  class="grid grid-cols-1 gap-10">
+                <div>
                     <% for(int i = 0; i < usersIntern.size(); i++){ %>
                         <div><%=  usersIntern.get(i) %></div>
                     <% } %>
